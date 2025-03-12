@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>휴대폰인증인척</title>
+<link type="text/css" rel="stylesheet" href="../css/member/ph_identify.css?v=1">
+</head>
+<body>
+<form id="frm_pop">
+	이름 <input type="text" name="mname" > <br>
+	통신사 
+	<select name="telecom">
+		<option value="SKT"> SKT </option>
+		<option value="KT"> KT </option>
+		<option value="LGT"> LGT </option>
+		<option value="alttl"> 알뜰폰 </option>
+	</select> 
+	<input type="text" name="mphone" maxlength="11" placeholder="휴대폰번호를 입력하세요"> <br>
+	주민등록번호 <input type="text" maxlength="6" id="regi_no1" placeholder="예) 800101"> - <input type="text" maxlength="1" name="regi_no2">****** <br>
+	<label><input type="radio" name="national" value="inner" checked>내국인</label>
+	<label><input type="radio" name="national" value="foreign">외국인</label>  <br>
+	<label>본인확인을 위한 필수사항에 동의 <br>
+	<input type="checkbox" id="all_agree" onclick="agree_all(this.checked);">전체동의</label> <br>
+	<label><input type="checkbox" name="agree" value="agree1" onclick="agr_ck();">암튼동의1(필수)</label> 
+	<label><input type="checkbox" name="agree" value="agree2" onclick="agr_ck();">암튼동의2(필수)</label> <br>
+	<label><input type="checkbox" name="agree" value="agree3" onclick="agr_ck();">암튼동의3(필수)</label>  
+	<label><input type="checkbox" name="agree" value="agree4" onclick="agr_ck();">암튼동의4(필수)</label> <br>
+	<input type="button" value="인증하기" onclick="idCk_go(frm_pop.regi_no2.value);">
+	<span id="idno_box" style="display:none;">
+		<input type="text" name="id_no" > 
+		<input type="button" value="인증완료" onclick="idCk_cmp(frm_pop.mname.value,frm_pop.telecom.value,frm_pop.mphone.value,frm_pop.regi_no2.value);">
+	</span>
+</form>
+</body>
+<script src="../js/member/ph_identify.js?v=1"></script>
+</html>
